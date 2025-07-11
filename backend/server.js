@@ -1,8 +1,10 @@
-
 const express = require('express');
 const app = express();
 
+const packsRoutes = require('./routes/packs');
+
 app.use(express.json());
+app.use(packsRoutes); // Modular route mount here ✅
 
 app.post('/login', (req, res) => {
   res.status(200).json({ message: 'Login successful' });
@@ -28,21 +30,6 @@ app.get('/community/:year', (req, res) => {
       { id: 1, title: `Discussion about ${year} films`, posts: [] }
     ]
   });
-});
-
-app.get('/api/packs/2025', (req, res) => {
-  res.status(200).json([
-    {
-      "title": "The Silence of Sunlight",
-      "slug": "silence-of-sunlight",
-      "thumbnailUrl": "/images/sunlight.jpg"
-    },
-    {
-      "title": "Geometry of Fire",
-      "slug": "geometry-of-fire",
-      "thumbnailUrl": "/images/fire.jpg"
-    }
-  ]);
 });
 
 module.exports = app;
