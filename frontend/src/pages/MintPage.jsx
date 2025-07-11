@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { InjectedConnector } from '@wagmi/connectors';
+import { InjectedConnector } from '@wagmi/connectors/injected';
 
 function MintPage() {
   const { address, isConnected } = useAccount();
