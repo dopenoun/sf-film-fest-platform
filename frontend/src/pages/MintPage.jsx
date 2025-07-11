@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { InjectedConnector } from '@wagmi/connectors/injected';
+import { InjectedConnector } from 'wagmi/connectors'; // ✅ works with Vite + wagmi@2.x
 
 function MintPage() {
   const { address, isConnected } = useAccount();
