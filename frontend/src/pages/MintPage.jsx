@@ -1,12 +1,11 @@
-
 import React from 'react';
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { InjectedConnector } from 'wagmi/connectors'; // ✅ works with Vite + wagmi@2.x
+import { inject } from '@wagmi/connectors';
 
 function MintPage() {
   const { address, isConnected } = useAccount();
   const { connect } = useConnect({
-    connector: new InjectedConnector(),
+    connector: inject(), // new style
   });
   const { disconnect } = useDisconnect();
 
@@ -30,3 +29,4 @@ function MintPage() {
 }
 
 export default MintPage;
+
